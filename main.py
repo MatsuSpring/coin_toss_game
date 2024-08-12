@@ -16,13 +16,21 @@ def main(page: ft.Page):
 
     # 表と裏が入れ替わる回数をランダムにして、表と裏どちらかをランダムに結果として表示する
     def toss_coin(e):
+        result.value=""
+        result.update()
         # 入れ替わる回数
-        swicth_time = random.randint(7, 15)
+        swicth_time = random.randint(10, 11)
         for i in range(swicth_time):
             coin_image.data = not coin_image.data
             coin_image.src = get_coin_pass(coin_image.data)
             coin_image.update()
-            time.sleep(0.7)
+            time.sleep(0.3)
+        # resultを適切に表示
+        if coin_image.data:
+            result.value = "結果は表です！"
+        else:
+            result.value = "結果は裏です！"
+        result.update()
 
     # アプリの説明のためのテキストコントロール
     title = ft.Text(
@@ -35,7 +43,7 @@ def main(page: ft.Page):
     )
     # コインを表示するImageコントロール
     coin_image = ft.Image(
-        src=get_coin_pass(True),
+        src=get_coin_pass(True),  # はじめは表
         width=200,
         height=200,
         data=False  # このプロパティがTrueなら表、Falseなら裏とする。
@@ -51,7 +59,12 @@ def main(page: ft.Page):
         ),
         on_click=toss_coin
     )
+    # トス結果を表示するコントロール
+    result = ft.Text(
+        value="",
+        size=15
+    )
 
-    page.add(title, text, coin_image, toss_button)
+    page.add(title, text, coin_image, toss_button, result)
 
 ft.app(main)
