@@ -8,7 +8,14 @@ def get_coin_pass(flag):
         return  "images/coin_tails.png"
 
 def main(page: ft.Page):
-    
+    # Trueなら表、Falseなら裏を表すものとする。
+    coin_flag = True
+    coin_image = ft.Image(
+        src=get_coin_pass(coin_flag),
+        width=200,
+        height=200,
+    )
 
+    page.add(coin_image)
 
 ft.app(main)
