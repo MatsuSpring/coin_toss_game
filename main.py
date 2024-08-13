@@ -5,9 +5,9 @@ import time
 # 引数がTrueなら表、Falseなら裏のコインの相対パスを返す
 def get_coin_pass(flag):
     if flag:
-        return "images/coin_heads.png"
+        return r".\images\coin_heads.png"
     else:
-        return  "images/coin_tails.png"
+        return r".\images\coin_tails.png"
 
 def main(page: ft.Page):
 
