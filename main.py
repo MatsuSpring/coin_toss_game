@@ -16,6 +16,9 @@ def main(page: ft.Page):
 
     # 表と裏が入れ替わる回数をランダムにして、表と裏どちらかをランダムに結果として表示する
     def toss_coin(e):
+        # toss_buttonを無効化
+        toss_button.disabled = True
+        toss_button.update()
         result.value=""
         result.update()
         # 入れ替わる回数
@@ -31,6 +34,9 @@ def main(page: ft.Page):
         else:
             result.value = "結果は裏です！"
         result.update()
+        # toss_buttonを有効化
+        toss_button.disabled = False
+        toss_button.update()
 
     # アプリの説明のためのテキストコントロール
     title = ft.Text(
