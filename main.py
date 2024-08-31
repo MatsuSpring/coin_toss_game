@@ -5,9 +5,9 @@ import time
 # 引数がTrueなら表、Falseなら裏のコインの相対パスを返す
 def get_coin_pass(flag):
     if flag:
-        return r".\images\coin_heads.png"
+        return r"\coin_heads.png"
     else:
-        return r".\images\coin_tails.png"
+        return r"\coin_tails.png"
 
 def main(page: ft.Page):
 
@@ -65,6 +65,7 @@ def main(page: ft.Page):
         ),
         on_click=toss_coin
     )
+
     # トス結果を表示するコントロール
     result = ft.Text(
         value="",
